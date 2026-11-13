@@ -1,0 +1,83 @@
+{
+  "rules": {
+    "n_decks": [
+      4,
+      8
+    ],
+    "penetration": [
+      0.65,
+      0.8
+    ],
+    "min_reserve": 26,
+    "burn_cards": 1,
+    "dealer_peek": true,
+    "dealer_hits_soft17": false,
+    "blackjack_payout": 1.5,
+    "double_rule": "any",
+    "double_after_split": true,
+    "max_hands": 4,
+    "resplit_aces": false,
+    "hit_split_aces": false,
+    "late_surrender": true,
+    "enable_betting": true,
+    "bet_sizes": [
+      1.0,
+      2.0,
+      4.0,
+      8.0
+    ]
+  },
+  "obs": {
+    "shoe_info": "seen_counts",
+    "total_encoding": "onehot"
+  },
+  "train": {
+    "total_steps": 5000000,
+    "n_envs": 64,
+    "hidden": [
+      256,
+      256
+    ],
+    "lr": 0.0001,
+    "lr_end": 0.0001,
+    "target_mode": "td",
+    "rollout_prob": 1.0,
+    "expected_settlement": true,
+    "dueling": true,
+    "play_prior": "none",
+    "deviate_threshold": 0.0,
+    "prior_margin": 0.02,
+    "pretrain_rounds": 0,
+    "teacher": "basic",
+    "teacher_cache": "",
+    "init_play": "runs/distill_s2/last.pt",
+    "freeze_play": true,
+    "pretrain_updates": 5000,
+    "pretrain_margin": 0.05,
+    "anchor_weight": 0.0,
+    "anchor_margin": 0.05,
+    "bet_head": "regress",
+    "bet_hidden": 16,
+    "bet_lr": 0.001,
+    "bet_batch": 1024,
+    "bet_memory": 100000000,
+    "gamma": 1.0,
+    "batch_size": 512,
+    "buffer_size": 500000,
+    "learning_starts": 20000,
+    "train_every": 4,
+    "target_update": 2000,
+    "grad_clip": 10.0,
+    "loss": "mse",
+    "huber_beta": 1.0,
+    "eps_start": 1.0,
+    "eps_end": 0.05,
+    "eps_decay_steps": 1000000,
+    "eval_every": 1000000,
+    "save_every": 0,
+    "eval_rounds": 20000,
+    "seed": 2,
+    "device": "cuda",
+    "out_dir": "runs/full_s2"
+  }
+}

@@ -1,0 +1,53 @@
+規則: RuleConfig(n_decks=(4, 8), penetration=(0.65, 0.8), min_reserve=26, burn_cards=1, dealer_peek=True, dealer_hits_soft17=False, blackjack_payout=1.5, double_rule='any', double_after_split=True, max_hands=4, resplit_aces=False, hit_split_aces=False, late_surrender=True, enable_betting=False, bet_sizes=(1.0, 2.0, 4.0, 8.0))
+觀測: ObsConfig(shoe_info='none', total_encoding='onehot')
+  老師（dp）已打 50,000 局（165s）
+  老師（dp）已打 100,000 局（329s）
+  老師（dp）已打 150,000 局（494s）
+  老師（dp）已打 200,000 局（662s）
+老師示範資料：200,000 局、287,519 個決策（663s）
+DP 蒸餾：287,519 個決策、20,000 次更新，最後 loss 0.0068（825s）
+
+[硬牌]  模型決策（括號內為與 basic strategy 不同處的 basic 決策）
+               2    3    4    5    6    7    8    9   10    A  
+硬 5           H    H    H    H    H    H    H    H    H    H  
+硬 6           H    H    H    H    H    H    H    H    H    H  
+硬 7           H    H    H    H    H    H    H    H    H    H  
+硬 8           H    H    H    H    H    H    H    H    H    H  
+硬 9           H    D    D    D    D    H    H    H    H    H  
+硬 10          D    D    D    D    D    D    D    D    H    H  
+硬 11          D    D    D    D    D    D    D    D    D    H  
+硬 12          H    H    S    S    S    H    H    H    H    H  
+硬 13          S    S    S    S    S    H    H    H    H    H  
+硬 14          S    S    S    S    S    H    H    H    H    H  
+硬 15          S    S    S    S    S    H    H    H    R    H  
+硬 16          S    S    S    S    S    H    H    R    R    R  
+硬 17          S    S    S    S    S    S    S    S    S    S  
+硬 18          S    S    S    S    S    S    S    S    S    S  
+硬 19          S    S    S    S    S    S    S    S    S    S  
+
+[軟牌]  模型決策（括號內為與 basic strategy 不同處的 basic 決策）
+               2    3    4    5    6    7    8    9   10    A  
+軟 13 (A,2)    H    H    H    D    D    H    H    H    H    H  
+軟 14 (A,3)    H    H    H    D    D    H    H    H    H    H  
+軟 15 (A,4)    H    H    D    D    D    H    H    H    H    H  
+軟 16 (A,5)    H    H    D    D    D    H    H    H    H    H  
+軟 17 (A,6)    H    D    D    D    D    H    H    H    H    H  
+軟 18 (A,7)    S    D    D    D    D    S    S    H    H    H  
+軟 19 (A,8)    S    S    S    S    S    S    S    S    S    S  
+軟 20 (A,9)    S    S    S    S    S    S    S    S    S    S  
+
+[對子]  模型決策（括號內為與 basic strategy 不同處的 basic 決策）
+               2    3    4    5    6    7    8    9   10    A  
+對 A,A         P    P    P    P    P    P    P    P    P    P  
+對 2,2         P    P    P    P    P    P    H    H    H    H  
+對 3,3         P    P    P    P    P    P    H    H    H    H  
+對 4,4         H    H    H    P    P    H    H    H    H    H  
+對 5,5         D    D    D    D    D    D    D    D    H    H  
+對 6,6         P    P    P    P    P    H    H    H    H    H  
+對 7,7         P    P    P    P    P    P    H    H    H    H  
+對 8,8         P    P    P    P    P    P    P    P    P    P  
+對 9,9         P    P    P    P    P    S    P    P    S    S  
+對 10,10       S    S    S    S    S    S    S    S    S    S  
+S=停牌 H=抽牌 R=投降 P=分牌 D=加倍
+
+與 basic strategy 一致率：100.0%（330/330）

@@ -1,0 +1,72 @@
+[
+  {
+    "mean_diff": -0.00847532382056205,
+    "ci95": [
+      -0.009625590701037847,
+      -0.0073250569400862536
+    ],
+    "differ_rate": 0.13671,
+    "diff_when_differ": -0.06199490761877003,
+    "rounds": 300000,
+    "model": "runs/abl_scratch/last.pt",
+    "seed": 2027,
+    "baseline": "basic",
+    "minutes": 4.448124758402506
+  },
+  {
+    "mean_diff": -0.008124654882432242,
+    "ci95": [
+      -0.009287818437596358,
+      -0.006961491327268127
+    ],
+    "differ_rate": 0.13769666666666666,
+    "diff_when_differ": -0.05900400553704213,
+    "rounds": 300000,
+    "model": "runs/abl_imit_basic/last.pt",
+    "seed": 2027,
+    "baseline": "basic",
+    "minutes": 4.476915291945139
+  },
+  {
+    "mean_diff": -0.0010680879249975808,
+    "ci95": [
+      -0.0018894929611645351,
+      -0.0002466828888306264
+    ],
+    "differ_rate": 0.07217333333333334,
+    "diff_when_differ": -0.014798927466251346,
+    "rounds": 300000,
+    "model": "runs/abl_dp_rl/last.pt",
+    "seed": 2027,
+    "baseline": "basic",
+    "minutes": 4.503212110201518
+  },
+  {
+    "mean_diff": -4.6083504139534534e-05,
+    "ci95": [
+      -0.00012128667120417738,
+      2.9119662925108312e-05
+    ],
+    "differ_rate": 0.0006133333333333334,
+    "diff_when_differ": -0.0751361480535889,
+    "rounds": 300000,
+    "model": "runs/abl_dp_noshoe/last.pt",
+    "seed": 2027,
+    "baseline": "basic",
+    "minutes": 4.354758210976919
+  },
+  {
+    "mean_diff": 0.0016302822009143833,
+    "ci95": [
+      0.0009284736999609675,
+      0.002332090701867799
+    ],
+    "differ_rate": 0.06103666666666667,
+    "diff_when_differ": 0.02670988259921987,
+    "rounds": 300000,
+    "model": "runs/distill_s1/last.pt",
+    "seed": 2027,
+    "baseline": "basic",
+    "minutes": 4.433251818021138
+  }
+]

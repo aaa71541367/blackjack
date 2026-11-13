@@ -1,0 +1,98 @@
+規則: RuleConfig(n_decks=(4, 8), penetration=(0.65, 0.8), min_reserve=26, burn_cards=1, dealer_peek=True, dealer_hits_soft17=False, blackjack_payout=1.5, double_rule='any', double_after_split=True, max_hands=4, resplit_aces=False, hit_split_aces=False, late_surrender=True, enable_betting=True, bet_sizes=(1.0, 2.0, 4.0, 8.0))
+觀測: ObsConfig(shoe_info='seen_counts', total_encoding='onehot')
+已從 runs/distill_s2/last.pt 載入出牌頭
+出牌頭凍結：只訓練下注頭，出牌一律貪婪
+
+step 1,000,000  eps 0.000  訓練近期平均 +0.0353  loss nan  (227s)
+[dqn] 20,000 局
+  平均每局報酬 : +0.0717  (95% CI -0.0089 ~ +0.1524)
+  每單位下注 EV: +1.924%   平均下注 3.727
+  下注分布     : 1.0x 61.0%, 8.0x 39.0%
+  動作分布     : hit 38.8%, stick 47.6%, split 2.2%, double 8.4%, surrender 2.9%
+
+step 2,000,000  eps 0.000  訓練近期平均 +0.0058  loss nan  (453s)
+[dqn] 20,000 局
+  平均每局報酬 : +0.0590  (95% CI -0.0296 ~ +0.1475)
+  每單位下注 EV: +1.369%   平均下注 4.305
+  下注分布     : 1.0x 52.8%, 8.0x 47.2%
+  動作分布     : hit 38.8%, stick 47.6%, split 2.2%, double 8.4%, surrender 2.9%
+
+step 3,000,000  eps 0.000  訓練近期平均 +0.0048  loss nan  (683s)
+[dqn] 20,000 局
+  平均每局報酬 : +0.0525  (95% CI -0.0334 ~ +0.1383)
+  每單位下注 EV: +1.274%   平均下注 4.119
+  下注分布     : 1.0x 55.4%, 8.0x 44.6%
+  動作分布     : hit 38.8%, stick 47.6%, split 2.2%, double 8.4%, surrender 2.9%
+
+step 4,000,000  eps 0.000  訓練近期平均 -0.0056  loss nan  (915s)
+[dqn] 20,000 局
+  平均每局報酬 : +0.0630  (95% CI -0.0263 ~ +0.1522)
+  每單位下注 EV: +1.436%   平均下注 4.384
+  下注分布     : 1.0x 51.7%, 8.0x 48.3%
+  動作分布     : hit 38.8%, stick 47.6%, split 2.2%, double 8.4%, surrender 2.9%
+
+step 5,000,000  eps 0.000  訓練近期平均 +0.0206  loss nan  (1150s)
+[dqn] 20,000 局
+  平均每局報酬 : +0.0561  (95% CI -0.0279 ~ +0.1402)
+  每單位下注 EV: +1.406%   平均下注 3.995
+  下注分布     : 1.0x 57.2%, 8.0x 42.8%
+  動作分布     : hit 38.8%, stick 47.6%, split 2.2%, double 8.4%, surrender 2.9%
+
+[硬牌]  模型決策（括號內為與 basic strategy 不同處的 basic 決策）
+               2    3    4    5    6    7    8    9   10    A  
+硬 5           H    H    H    H    H    H    H    H    H    H  
+硬 6           H    H    H    H    H    H    H    H    H    H  
+硬 7           H    H    H    H    H    H    H    H    H    H  
+硬 8           H    H    H    H    H    H    H    H    H    H  
+硬 9           H    D    D    D    D    H    H    H    H    H  
+硬 10          D    D    D    D    D    D    D    D    H    H  
+硬 11          D    D    D    D    D    D    D    D    D    H  
+硬 12          H    H    S    S    S    H    H    H    H    H  
+硬 13          S    S    S    S    S    H    H    H    H    H  
+硬 14          S    S    S    S    S    H    H    H    H    H  
+硬 15          S    S    S    S    S    H    H    H    R    H  
+硬 16          S    S    S    S    S    H    H    R    R    R  
+硬 17          S    S    S    S    S    S    S    S    S    S  
+硬 18          S    S    S    S    S    S    S    S    S    S  
+硬 19          S    S    S    S    S    S    S    S    S    S  
+
+[軟牌]  模型決策（括號內為與 basic strategy 不同處的 basic 決策）
+               2    3    4    5    6    7    8    9   10    A  
+軟 13 (A,2)    H    H    H    D    D    H    H    H    H    H  
+軟 14 (A,3)    H    H    H    D    D    H    H    H    H    H  
+軟 15 (A,4)    H    H    D    D    D    H    H    H    H    H  
+軟 16 (A,5)    H    H    D    D    D    H    H    H    H    H  
+軟 17 (A,6)    H    D    D    D    D    H    H    H    H    H  
+軟 18 (A,7)    S    D    D    D    D    S    S    H    H    H  
+軟 19 (A,8)    S    S    S    S    S    S    S    S    S    S  
+軟 20 (A,9)    S    S    S    S    S    S    S    S    S    S  
+
+[對子]  模型決策（括號內為與 basic strategy 不同處的 basic 決策）
+               2    3    4    5    6    7    8    9   10    A  
+對 A,A         P    P    P    P    P    P    P    P    P    P  
+對 2,2         P    P    P    P    P    P    H    H    H    H  
+對 3,3         P    P    P    P    P    P    H    H    H    H  
+對 4,4         H    H    H    P    P    H    H    H    H    H  
+對 5,5         D    D    D    D    D    D    D    D    H    H  
+對 6,6         P    P    P    P    P    H    H    H    H    H  
+對 7,7         P    P    P    P    P    P    H    H    H    H  
+對 8,8         P    P    P    P    P    P    P    P    P    P  
+對 9,9         P    P    P    P    P    S    P    P    S    S  
+對 10,10       S    S    S    S    S    S    S    S    S    S  
+S=停牌 H=抽牌 R=投降 P=分牌 D=加倍
+
+與 basic strategy 一致率：100.0%（330/330）
+
+依 Hi-Lo true count（僅分析用，不在 state 中）分組的下注行為：
+ TC   局數比例   平均下注   每單位下注 EV
+ -4      8.5%       1.01      -2.85%
+ -3      6.9%       1.08      +0.40%
+ -2     13.0%       1.28      -1.78%
+ -1     19.6%       1.79      -1.94%
+ +0     27.1%       4.76      -0.06%
+ +1     10.8%       7.76      +0.82%
+ +2      6.0%       7.96      +2.51%
+ +3      3.6%       7.99      +4.08%
+ +4      2.0%       8.00      +0.69%
+ +5      1.1%       8.00      +3.70%
+ +6      1.3%       8.00     +12.08%

@@ -1,0 +1,44 @@
+[
+  {
+    "mean_diff": 0.0011345772591999218,
+    "ci95": [
+      -7.746630202870239e-05,
+      0.002346620820428546
+    ],
+    "differ_rate": 0.06096,
+    "diff_when_differ": 0.01861183167978875,
+    "rounds": 100000,
+    "model": "runs/distill_s1/last.pt",
+    "seed": 777,
+    "baseline": "basic",
+    "minutes": 1.5007237315177917
+  },
+  {
+    "mean_diff": 0.0016621023370221215,
+    "ci95": [
+      0.0005142377295754505,
+      0.002809966944468793
+    ],
+    "differ_rate": 0.05594,
+    "diff_when_differ": 0.029712233411192737,
+    "rounds": 100000,
+    "model": "runs/distill_s2/last.pt",
+    "seed": 777,
+    "baseline": "basic",
+    "minutes": 1.493806743621826
+  },
+  {
+    "mean_diff": 0.0014071635417241737,
+    "ci95": [
+      0.0002452219115277243,
+      0.002569105171920623
+    ],
+    "differ_rate": 0.05719,
+    "diff_when_differ": 0.024605062803360257,
+    "rounds": 100000,
+    "model": "runs/distill_s3/last.pt",
+    "seed": 777,
+    "baseline": "basic",
+    "minutes": 1.490614402294159
+  }
+]

@@ -1,0 +1,2 @@
+step,epsilon,train_reward_recent,loss,eval_reward,eval_ci_lo,eval_ci_hi,eval_ev_per_unit,eval_mean_bet
+2000000,0.05,-0.03182,0.3045819772705436,-0.011725,-0.026732180329929495,0.0032821803299294943,-0.011725,1.0
